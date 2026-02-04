@@ -193,18 +193,22 @@ export function BlobRevealImage({
     enableRevealOnce();
     activeRef.current = true;
     setFromClientPoint(e.clientX, e.clientY);
-    try {
-      e.currentTarget.setPointerCapture(e.pointerId);
-    } catch {
-      // ignore
+    if (e.pointerType !== 'touch') {
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      } catch {
+        // ignore
+      }
     }
   };
 
   const onPointerUp: React.PointerEventHandler<HTMLDivElement> = (e) => {
-    try {
-      e.currentTarget.releasePointerCapture(e.pointerId);
-    } catch {
-      // ignore
+    if (e.pointerType !== 'touch') {
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch {
+        // ignore
+      }
     }
     if (e.pointerType === 'touch') {
       // Keep it briefly visible after tap
@@ -213,6 +217,23 @@ export function BlobRevealImage({
       }, 650);
       return;
     }
+    activeRef.current = false;
+  };
+
+  const onPointerCancel: React.PointerEventHandler<HTMLDivElement> = (e) => {
+    if (e.pointerType !== 'touch') {
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch {
+        // ignore
+      }
+    }
+    activeRef.current = false;
+  };
+
+  const onLostPointerCapture: React.PointerEventHandler<
+    HTMLDivElement
+  > = () => {
     activeRef.current = false;
   };
 
@@ -225,7 +246,15 @@ export function BlobRevealImage({
       onPointerMove={onPointerMove}
       onPointerDown={onPointerDown}
       onPointerUp={onPointerUp}
-      style={{ touchAction: 'pan-y' }}
+      onPointerCancel={onPointerCancel}
+      onLostPointerCapture={onLostPointerCapture}
+      onContextMenu={(e) => e.preventDefault()}
+      style={{
+        touchAction: 'pan-y',
+        userSelect: 'none',
+        WebkitUserSelect: 'none',
+        WebkitTouchCallout: 'none',
+      }}
       aria-label={alt}
       role="img"
     >
@@ -250,7 +279,13 @@ export function BlobRevealImage({
           priority={priority}
           quality={quality}
           sizes={sizes}
-          className={['object-cover', imageClassName].filter(Boolean).join(' ')}
+          draggable={false}
+          className={[
+            'object-cover pointer-events-none select-none',
+            imageClassName,
+          ]
+            .filter(Boolean)
+            .join(' ')}
         />
 
         <div
@@ -271,7 +306,11 @@ export function BlobRevealImage({
               priority={revealPriority}
               quality={quality}
               sizes={sizes}
-              className={['object-cover', imageClassName]
+              draggable={false}
+              className={[
+                'object-cover pointer-events-none select-none',
+                imageClassName,
+              ]
                 .filter(Boolean)
                 .join(' ')}
             />

@@ -55,11 +55,11 @@ const projects: Project[] = [
       '/projects/Sacuanjoche/3.png',
       '/projects/Sacuanjoche/4.png',
       '/projects/Sacuanjoche/5.png',
-      '/projects/Sacuanjoche/7.jfif',
-      '/projects/Sacuanjoche/8.jfif',
-      '/projects/Sacuanjoche/9.jfif',
-      '/projects/Sacuanjoche/10.jfif',
-      '/projects/Sacuanjoche/11.jfif',
+      '/projects/Sacuanjoche/7.png',
+      '/projects/Sacuanjoche/8.png',
+      '/projects/Sacuanjoche/9.png',
+      '/projects/Sacuanjoche/10.png',
+      '/projects/Sacuanjoche/11.png',
     ],
     technologies: [
       { name: 'React', icon: '/tech/react_dark.svg' },
@@ -106,7 +106,10 @@ export function ProjectsSection() {
   };
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" id="projects">
+    <section
+      className="py-20 md:py-32 relative overflow-hidden scroll-mt-24 md:scroll-mt-28"
+      id="projects"
+    >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-linear-to-b from-background via-muted/5 to-background" />
 
@@ -116,12 +119,12 @@ export function ProjectsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-black mb-4 text-balance">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black mb-3 sm:mb-4 text-balance">
             Proyectos <span className="text-primary">Destacados</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
+          <p className="text-sm sm:text-base md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
             Una muestra de mi trabajo más reciente que combina creatividad con
             tecnología de vanguardia
           </p>
@@ -138,9 +141,9 @@ export function ProjectsSection() {
               transition={{ duration: 0.3 }}
             >
               <Card className="overflow-hidden border border-border/50 backdrop-blur-sm bg-card/50">
-                <div className="grid md:grid-cols-2 gap-8 p-8">
+                <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 p-3 sm:p-6 md:p-8">
                   {/* Image Carousel */}
-                  <div className="relative aspect-video rounded-lg overflow-hidden bg-muted/10 p-1 sm:p-2">
+                  <div className="relative aspect-video max-h-60 sm:max-h-none rounded-lg overflow-hidden bg-muted/10 p-1 sm:p-2">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={activeImage}
@@ -170,29 +173,29 @@ export function ProjectsSection() {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-background/70 hover:bg-background border border-border/40 backdrop-blur"
+                          className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 rounded-full bg-background/70 hover:bg-background border border-border/40 backdrop-blur h-8 w-8 sm:h-10 sm:w-10"
                           onClick={prevImage}
                           aria-label="Imagen anterior"
                         >
-                          <ChevronLeft className="w-5 h-5" />
+                          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                         </Button>
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-background/70 hover:bg-background border border-border/40 backdrop-blur"
+                          className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 rounded-full bg-background/70 hover:bg-background border border-border/40 backdrop-blur h-8 w-8 sm:h-10 sm:w-10"
                           onClick={nextImage}
                           aria-label="Siguiente imagen"
                         >
-                          <ChevronRight className="w-5 h-5" />
+                          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                         </Button>
 
                         {/* Image Indicators */}
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                        <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                           {currentProject.images.map((_, idx) => (
                             <button
                               key={idx}
                               onClick={() => setActiveImage(idx)}
-                              className={`w-2 h-2 rounded-full transition-all ${
+                              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all ${
                                 idx === activeImage
                                   ? 'bg-primary w-8'
                                   : 'bg-muted-foreground/30'
@@ -206,27 +209,27 @@ export function ProjectsSection() {
                   </div>
 
                   {/* Project Details */}
-                  <div className="flex flex-col justify-between">
-                    <div className="space-y-6">
+                  <div className="flex flex-col justify-between min-w-0">
+                    <div className="space-y-4 sm:space-y-6">
                       <div>
-                        <h3 className="text-3xl md:text-4xl font-bold mb-3 text-balance">
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-balance">
                           {currentProject.title}
                         </h3>
-                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                        <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
                           {currentProject.description}
                         </p>
                       </div>
 
                       {/* Technologies */}
                       <div>
-                        <h4 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">
+                        <h4 className="text-xs sm:text-sm font-semibold text-muted-foreground mb-2 sm:mb-3 uppercase tracking-wide">
                           Tecnologías
                         </h4>
-                        <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 md:flex-wrap md:overflow-visible md:pb-0 md:mx-0 md:px-0">
+                        <div className="flex flex-wrap gap-2">
                           {currentProject.technologies.map((tech) => (
                             <motion.div
                               key={tech.name}
-                              className="shrink-0 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-sm font-medium inline-flex items-center gap-2"
+                              className="shrink-0 px-2.5 py-1 rounded-full border border-primary/30 bg-primary/5 text-[11px] sm:text-sm font-medium inline-flex items-center gap-2"
                               whileHover={{
                                 scale: 1.05,
                                 borderColor: 'hsl(var(--primary))',
@@ -252,7 +255,7 @@ export function ProjectsSection() {
                       {currentProject.liveUrl && (
                         <Button
                           className="w-full sm:flex-1 group"
-                          size="lg"
+                          size="default"
                           asChild
                         >
                           <a
@@ -268,7 +271,7 @@ export function ProjectsSection() {
                       {currentProject.githubUrl && (
                         <Button
                           variant="outline"
-                          size="lg"
+                          size="default"
                           className="w-full sm:flex-1 group bg-transparent"
                           asChild
                         >
