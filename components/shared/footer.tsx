@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 export function Footer() {
@@ -13,6 +13,11 @@ export function Footer() {
       icon: Linkedin,
       href: 'https://www.linkedin.com/in/dylan-araica-664354274',
       label: 'LinkedIn',
+    },
+    {
+      icon: ExternalLink,
+      href: 'https://www.tiktok.com/@dylanaraica6',
+      label: 'TikTok',
     },
     { icon: Mail, href: 'mailto:dylanjo0606@gmail.com', label: 'Correo' },
   ];

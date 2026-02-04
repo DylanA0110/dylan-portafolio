@@ -3,7 +3,8 @@ import type { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dylan-araica.vercel.app';
 
   const base = [
     {
