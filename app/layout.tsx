@@ -61,6 +61,9 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
+  verification: {
+    google: 'c0xtjJOARJIpQcdzSnKJJyP_ZHN5xCjk38QKJI7FuMs',
+  },
   openGraph: {
     type: 'website',
     title: 'Dylan Araica | Portafolio y Blog',
