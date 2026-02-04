@@ -1,0 +1,127 @@
+import React from 'react';
+
+type Props = {
+  className?: string;
+};
+
+export const SpiderWebPattern = React.memo(function SpiderWebPattern({
+  className,
+}: Props) {
+  return (
+    <div className={className ?? ''} aria-hidden="true">
+      <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern
+            id="spider-web"
+            x="0"
+            y="0"
+            width="400"
+            height="400"
+            patternUnits="userSpaceOnUse"
+          >
+            <line
+              x1="200"
+              y1="200"
+              x2="400"
+              y2="0"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <line
+              x1="200"
+              y1="200"
+              x2="400"
+              y2="200"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <line
+              x1="200"
+              y1="200"
+              x2="400"
+              y2="400"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <line
+              x1="200"
+              y1="200"
+              x2="200"
+              y2="400"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <line
+              x1="200"
+              y1="200"
+              x2="0"
+              y2="400"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <line
+              x1="200"
+              y1="200"
+              x2="0"
+              y2="200"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <line
+              x1="200"
+              y1="200"
+              x2="0"
+              y2="0"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <line
+              x1="200"
+              y1="200"
+              x2="200"
+              y2="0"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="50"
+              fill="none"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="100"
+              fill="none"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="150"
+              fill="none"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#spider-web)" />
+      </svg>
+    </div>
+  );
+});
