@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     locale: 'es_ES',
     images: [
       {
-        url: '/images/Perfil.jpg',
+        url: '/images/image.jpg',
         width: 1200,
         height: 630,
         alt: 'Dylan Araica',
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     title: 'Dylan Araica | Portafolio y Blog',
     description:
       'Desarrollador Frontend y creativo: construyendo experiencias digitales con diseño y detalle.',
-    images: ['/images/Perfil.jpg'],
+    images: ['/images/image.jpg'],
   },
 };
 
