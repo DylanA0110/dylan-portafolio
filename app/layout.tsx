@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'c0xtjJOARJIpQcdzSnKJJyP_ZHN5xCjk38QKJI7FuMs',
+    google: '_XWv5hHveQE9Z31bsISFFWEt9Y3X0kAS2ApgkA6r0aM',
   },
   openGraph: {
     type: 'website',
