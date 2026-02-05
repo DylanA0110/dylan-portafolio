@@ -20,7 +20,7 @@ const dancingScript = Dancing_Script({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dylan-araica.vercel.app',
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.dylanaraica.dev',
   ),
   title: {
     default: 'Dylan Araica | Portafolio y Blog',
@@ -99,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dylan-araica.vercel.app';
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.dylanaraica.dev';
 
   const personJsonLd = {
     '@context': 'https://schema.org',

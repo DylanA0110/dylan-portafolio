@@ -4,7 +4,7 @@ import { blogPosts } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dylan-araica.vercel.app';
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.dylanaraica.dev';
 
   const base = [
     {
